@@ -1,4 +1,4 @@
-const CACHE='rict-guide-v3';
+const CACHE='rict-guide-v4';
 const FILES=['./','./index.html','./favicon.svg','./favicon.ico','./apple-touch-icon.png','./styles.css','./data.js','./app.js','./providence.jpg','./hartford.jpg'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES)))});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('rict-guide-')&&k!==CACHE).map(k=>caches.delete(k)))))});

@@ -1,5 +1,22 @@
 /* Research checked November 18, 2026. Booked times supplied by traveler. */
 const SOURCES = {
+ thayer:{name:"Thayer Street District · restaurants, shopping and College Hill",url:"https://www.thayerstreetdistrict.com/",kind:"Neighborhoods"},
+ wickenden:{name:"Visit Rhode Island · Wickenden Street",url:"https://www.visitrhodeisland.com/things-to-do/trip-ideas-getaways/village-experiences-shops/wickenden-street-providence/",kind:"Neighborhoods"},
+ pratt:{name:"Pratt Street · merchant directory",url:"https://prattst.com/merchants/",kind:"Neighborhoods"},
+ bloom:{name:"Bloom Bake Shop · current shop hours and dining room",url:"https://bloombakeshopct.com/our-shop",kind:"Menus"},
+ storySoil:{name:"Story and Soil · independent Hartford café",url:"https://www.storyandsoilcoffee.com/",kind:"Menus"},
+ hartfordPrints:{name:"Hartford Prints · Pratt Street shop",url:"https://hartfordprints.com/pages/shop",kind:"Souvenirs"},
+ eastPockets:{name:"East Side Pockets · official menu and ordering",url:"https://www.eastsidepocket.com/",kind:"Menus"},
+ westDiner:{name:"West Side Diner · address and hours",url:"https://westsidedinerri.com/contact.html",kind:"Menus"},
+ ashleys:{name:"CTvisit · Ashley’s breakfast and lunch diner",url:"https://ctvisit.com/listings/ashleys",kind:"Menus"},
+ brownDates:{name:"Brown Registrar · 2026–27 academic calendar",url:"https://registrar.brown.edu/academic-calendar/2026-2027-academic-calendar",kind:"Neighborhoods"},
+ uconnHartford:{name:"UConn · downtown Hartford campus",url:"https://admissions.uconn.edu/campuses/hartford/",kind:"Neighborhoods"},
+ trinityCampus:{name:"Trinity College · Hartford campus location",url:"https://www.trincoll.edu/admissions/visit-trinity/travel-to-campus/",kind:"Neighborhoods"},
+ uhart:{name:"University of Hartford · campus map and location",url:"https://www.hartford.edu/student-life/transportation/default.aspx",kind:"Neighborhoods"},
+ ctfastrak:{name:"CTtransit · CTfastrak bus rapid transit",url:"https://www.cttransit.com/services/ctfastrak",kind:"Transit"},
+ hartfordRail:{name:"CTrail · Hartford Line regional rail",url:"https://hartfordline.com/about/",kind:"Transit"},
+ pvdRail:{name:"PVD Airport · public buses and MBTA commuter rail",url:"https://flyri.com/passengers/public-transit-buses/",kind:"Transit"},
+
  starbucksRI:{name:'Starbucks · Providence Place store locator',url:'https://www.starbucks.com/store-locator/store/1031725/providence-place-mall-1-providence-place-providence-ri-02903-us',kind:'Souvenirs'},
  starbucksRIlisting:{name:'Providence Place Starbucks · corroborating store listing',url:'https://www.yellowpages.com/providence-ri/mip/starbucks-coffee-503937169',kind:'Souvenirs'},
  mall:{name:'Providence Place · Official mall hours',url:'https://www.providenceplace.com/hours/',kind:'Souvenirs'},
@@ -51,6 +68,8 @@ const SOURCES = {
  reviewCT:{name:'Local discussion · Convention Center walking and buses',url:'https://www.reddit.com/r/Hartford/comments/1xc3scl/convention_center_area_walkable/',kind:'Traveler context'}
 };
 const FOOD = [
+ {id:'east-pockets',city:'Providence',name:'East Side Pockets',area:'278 Thayer Street · College Hill',order:'Falafel wrap + tap water; inspect the current menu first',base:13,status:'Planning allowance · not a verified menu price',service:'counter',note:'Budget $12–17 including RI meal tax for a simple wrap; any optional tip comes out of your café/snack envelope. A good affordable lunch swap when visiting Thayer, rather than a second lunch. The official menu was not readable by the research tool; check the live menu and hours before going.',sources:['eastPockets','thayer']},
+ {id:'bloom',city:'Hartford',name:'Bloom Bake Shop',area:'80 Pratt Street · Downtown',order:'A savory café item + water, or coffee and a pastry',base:15,status:'Planning allowance · not a verified menu price',service:'counter',note:'For Saturday lunch, allow $14–18 with meal tax for a modest savory item; check the case/menu first. If lunch is unavailable or too expensive, choose another nearby casual counter within that limit. Official shop hours: Tue–Sat 8am–4pm, Sun 8am–3pm, closed Monday. Save the coffee/pastry for your snack allowance if buying both.',sources:['bloom']},
  {id:'ellies',city:'Providence',name:'Ellie’s',area:'250 Westminster Street · Downcity',order:'Breakfast sandwich + a hot coffee',base:15,status:'Planning allowance',service:'counter',note:'Allow $12–18 before tax; the exact current café price could not be verified. Pick a house pastry instead if the sandwich exceeds your budget. Tue–Thu 8am–4pm; Fri 8am–3pm. About 8–12 minutes from your hotel.',sources:['ellies','elliesHours']},
  {id:'barley',city:'Providence',name:'The Malted Barley',area:'334 Westminster Street · Downcity',order:'Greek salad + marinated chicken + tap water',base:20,status:'Published menu: salad $15 + chicken $5',service:'table',note:'A lighter first-night choice than loaded fries. Ask for dressing on the side. Alternatives: turkey pretzel sandwich $15 or Cali Chicken pretzel sandwich $16. Sandwiches include chips; a side salad costs $6 extra. Pretzels are baked to order, so allow extra time when busy. About 10–15 minutes from the hotel.',sources:['barley']},
  {id:'geoffs',city:'Providence',name:'Geoff’s Superlative Sandwiches',area:'401 South Main Street · Fox Point',order:'Turkey sandwich + water; ask for the house recommendation',base:16,status:'Planning allowance',service:'counter',note:'Allow $14–18 before tax; sandwich prices need rechecking. Posted hours 10am–7pm daily. A warm lunch break near the pedestrian bridge; complimentary pickles are advertised by the shop.',sources:['geoffs']},
@@ -62,14 +81,14 @@ const FOOD = [
 ];
 // A stop’s indoor alternative replaces that stop, never its booked transport.
 const DAYS = [
- {id:'dec-09',date:'Wed, Dec 9',city:'Providence',title:'Land, settle in, slow down.',sub:'A gentle first evening after three flights.',walk:'0.8–1.5 mi',budget:[45,60],label:'Arrival day',route:'PVD airport · hotel · Empire / Washington Streets',food:['barley'],note:'Arrival is 3:34pm Eastern. Expect to reach the hotel after dark; dinner and sleep are the priorities.',stops:[
+ {id:'dec-09',date:'Wed, Dec 9',city:'Providence',title:'Land, settle in, slow down.',sub:'A gentle first evening after three flights.',walk:'0.8–1.5 mi',budget:[47, 62],label:'Arrival day',route:'PVD airport · hotel · Empire / Washington Streets',food:['barley'],note:'Arrival is 3:34pm Eastern. Expect to reach the hotel after dark; dinner and sleep are the priorities.',stops:[
  {time:'3:20am CT',title:'Arrive at Corpus Christi airport',type:'Booked travel',duration:'2-hour airport buffer',text:'Target arrival for the supplied 5:20am flight. Arrange transport the night before. Have your sandwich and coffee at home; no Corpus Christi breakfast purchase is budgeted.',place:'Corpus Christi International Airport',cost:'Breakfast at home · $0 trip spending',shot:'Film your bag and the departures board only after checking that no booking code, barcode, or ID is visible.'},
  {time:'5:20am–3:34pm',title:'CRP → Houston → Chicago → Providence',type:'Booked travel',duration:'All airport times local',text:'UA4187: CRP 5:20am → IAH 6:29am. UA547: IAH 7:20am → ORD 10:10am. UA4664: ORD 11:59am → PVD 3:34pm. Houston connection 51 minutes; Chicago 1h49. Go directly to your next gate at IAH. Buy lunch at ORD after finding the gate; allow $15–20.',cost:'Flights booked · fare not supplied',shot:'Window view and a short terminal establishing shot. Keep strangers, boarding passes, and personal screens out of frame.'},
  {time:'4:10–5:30pm',title:'Airport bus, then hotel check-in',type:'Transfer',duration:'Allow 60–90 min including wait',text:'After baggage, follow Ground Transportation to the RIPTA stop. Take route 66 toward Providence / Kennedy Plaza. Confirm the headsign; the other direction goes toward URI. Get off at Kennedy Plaza and walk about 12–18 minutes to 21 Atwells Avenue. Route 66 is roughly every 45 minutes on the published weekday schedule; use live departures. Hotel check-in starts 3pm.',place:'Hilton Garden Inn Providence Downtown Convention Center, 21 Atwells Avenue',origin:'Rhode Island T. F. Green International Airport',mode:'transit',cost:'RIPTA $2 · hotel booked',sources:['airportRI','wave','hotelRI'],cold:'If the next bus means a long outdoor wait, warm up inside the terminal. A taxi is an optional contingency, not included in the bus budget.'},
  {time:'5:45–6:15pm',title:'A warm architectural pause',type:'Free / indoors',duration:'Optional · 30 min',text:'Providence Public Library is about 5–8 minutes from the hotel. Ask which historic spaces are open; special rooms can be occupied by events. Wednesday public hours run until 7pm. Skip if the flight is delayed or you feel tired.',place:'Providence Public Library, 150 Empire Street',cost:'Free',sources:['library'],shot:'Exterior sign, doorway, one permitted interior detail. No flash or filming other patrons.'},
  {time:'6:20–7:20pm',title:'A lighter dinner, then an early night',type:'Food',duration:'60 min',text:'Walk about 5–8 minutes from the library to The Malted Barley. Order the Greek salad with marinated chicken and dressing on the side, plus tap water. Prefer a sandwich? The turkey pretzel sandwich is $15 and the Cali Chicken is $16; both include chips, with a side salad $6 extra. Return about 10–15 minutes along Westminster / Empire / Fountain Streets. Skip the library if delayed.',place:'The Malted Barley, 334 Westminster Street Providence',cost:'$25.20 with RI 8% meal tax + 18% pre-tax tip',meal:'barley',sources:['barley'],shot:'Storefront, salad details and warm street lights. Stop filming while crossing streets.'}
  ]},
- {id:'dec-10',date:'Thu, Dec 10',city:'Providence',title:'Marble, brick & river light.',sub:'The main photo day, ending with a free museum evening.',walk:'3–4.5 mi',budget:[60,80],label:'Free museum evening',route:'Downcity · State House · Benefit Street · river · RISD',food:['ellies','geoffs','trinity'],note:'Keep outdoor blocks to 20–30 minutes. Around 4:15pm is the planning sunset window; check the exact day nearer departure.',stops:[
+ {id:'dec-10',date:'Thu, Dec 10',city:'Providence',title:'Marble, brick & river light.',sub:'The main photo day, ending with a free museum evening.',walk:'4–5 mi with Thayer; shorten by bus',budget:[57, 81],label:'Free museum evening',route:'Downcity · State House · Benefit Street · river · RISD',food:['ellies','geoffs','trinity'],note:'Keep outdoor blocks to 20–30 minutes. Around 4:15pm is the planning sunset window; check the exact day nearer departure.',stops:[
  {time:'8:30–9:15am',title:'Coffee and breakfast at Ellie’s',type:'Food',duration:'45 min',text:'Walk about 8–12 minutes from 21 Atwells Avenue. Order a breakfast sandwich and hot coffee. If you use the hotel breakfast instead, confirm whether your $10 daily food-and-drink credit applies; it is not a promise of free breakfast.',place:'Ellie’s, 250 Westminster Street Providence',cost:'About $16.20 before optional tip',meal:'ellies',sources:['ellies','elliesHours']},
  {time:'9:20–11:00am',title:'Rhode Island State House · tour requested',type:'Request submitted',duration:'Arrive 9:45am · tour requested 10–11am',statusNote:'Request submitted for December 10 at 10am Eastern (9am Central), 60 minutes. The acknowledgment says staff will review and respond; await the separate acceptance email. This is not yet an accepted tour booking.',text:'Your General Public Tour request is submitted for Thursday, December 10 at 10am Eastern, for a 60-minute in-person slot. Walk to 82 Smith Street and arrive about 9:45am for entry and security. Bring ID and follow the acceptance email’s logistics when it arrives. If acceptance has not arrived, the published walk-in option is 10am or 1pm on weekdays; ask the Tour Coordinator at 401-330-3182 during weekday business hours.',place:'Rhode Island State House, 82 Smith Street Providence',cost:'Free',sources:['statehouse'],shot:'Exterior dome, marble stairs, rotunda detail where permitted. Put your phone away at security.'},
  {time:'11:10–11:25am',title:'Waterplace Park reflections',type:'Free / outdoors',duration:'10 min walk + 15 min stop',text:'Walk down toward the basin. Frame the curved river edge and downtown buildings from the upper paths. Use cleared pavement; skip lower stairs and icy railings. There is no WaterFire scheduled for this Thursday.',place:'Waterplace Park Providence',cost:'Free',sources:['waterfire'],shot:'A stationary 5-second wide shot, reflection close-up, then one slow pan.',cold:'Skip the river paths. Take a short indoor warm-up at Providence Place during its posted shopping hours, then return toward the hotel.'},
@@ -77,12 +96,12 @@ const DAYS = [
  {time:'12:00–12:45pm',title:'Warm up and reset at the hotel',type:'Rest',duration:'15–20 min return + break',text:'Charge your phone, refill water and swap gloves. This pause splits the route into two manageable loops rather than one long cold walk.',place:'Hilton Garden Inn Providence Downtown Convention Center, 21 Atwells Avenue',cost:'No extra cost'},
  {time:'12:45–1:45pm',title:'South Main sandwich lunch',type:'Food',duration:'20–25 min walk + lunch',text:'Walk across downtown to Geoff’s on South Main. Ask for a turkey sandwich recommendation and water. Eat inside if seats are available; otherwise shorten the walk and choose a nearby indoor lunch venue.',place:'Geoff’s Superlative Sandwiches, 401 South Main Street Providence',cost:'About $17.28 before optional tip',meal:'geoffs',sources:['geoffs']},
  {time:'1:50–2:20pm',title:'The pedestrian bridge, briefly',type:'Free / outdoors',duration:'5–10 min walk + 15–20 min stop',text:'Michael S. Van Leesten Memorial Bridge gives you river and skyline angles without a long waterfront trek. Stay on cleared approaches. A windy bridge is a quick photo stop, not a place to linger.',place:'Michael S. Van Leesten Memorial Bridge Providence',cost:'Free',shot:'One bridge approach, one skyline view, one river detail. Hold the phone steady with both gloves secure.',cold:'Omit the bridge. Stay inside over lunch longer, then head to the library, which opens Thursday at 1pm and closes at 5pm.'},
- {time:'2:30–3:30pm',title:'Benefit Street and Brown exteriors',type:'Free / outdoors',duration:'15–20 min uphill + short loop',text:'Walk north on South Main, then climb toward Benefit Street for brick façades and the exterior of the Providence Athenaeum at 251 Benefit Street. Continue toward Brown’s Van Wickle Gates only if the uphill sidewalks are clear. This is an exterior route; admission to private buildings is not assumed.',place:'Providence Athenaeum, 251 Benefit Street Providence',cost:'Free exterior photos',shot:'Doorways, brick details, a street-level view of College Hill. Avoid entering private buildings or capturing residents.',cold:'Replace the hill walk with Providence Public Library, 150 Empire Street, 1–5pm Thursday. Then allow 20–25 minutes to RISD. No tour is assumed: the library’s regular guided tour is on Wednesdays.',sources:['library']},
- {time:'3:30–4:45pm',title:'Coffee, shops and a warm wait',type:'Flexible',duration:'Unhurried buffer',text:'Descend toward South Main / RISD and browse open shops. Keep $6–10 for a warm drink or pastry; exact café and hours can be chosen on the day. Aim to be near the museum by 4:50pm, not waiting outside for an hour.',place:'RISD Museum, 20 North Main Street Providence',cost:'Optional snack allowance $6–10',cold:'Use the library until about 4:20pm, then head to the museum. If severe weather makes the trip uncomfortable, skip the museum and stay near the hotel.'},
+ {time:'2:30–4:10pm',title:'College Hill → Thayer Street cafés and shops',type:'Free / outdoors',duration:'20–30 min uphill + browsing; bus if practical',text:'With clear sidewalks, head uphill via Benefit Street and Brown’s public-facing campus streets to Thayer Street. Browse the Brown Bookstore and open shops, then choose a coffee or inexpensive snack. This is the best-fit student-area stop for your daytime café/shopping preference. Visit public businesses; no access to campus interiors is assumed. The hill adds walking, so use live RIPTA directions if helpful. Leave Thayer by about 4:10pm for a 20–30 minute downhill walk to RISD plus a warm indoor buffer.',place:'Thayer Street and Angell Street Providence',cost:'Free exterior photos',shot:'Doorways, brick details, a street-level view of College Hill. Avoid entering private buildings or capturing residents.',cold:'Replace the hill walk with Providence Public Library, 150 Empire Street, 1–5pm Thursday. Then allow 20–25 minutes to RISD. No tour is assumed: the library’s regular guided tour is on Wednesdays.',sources:['library','thayer','brownDates']},
+ {time:'4:10–4:50pm',title:'Return toward RISD, with time to warm up',type:'Flexible',duration:'Unhurried buffer',text:'Walk downhill toward South Main / RISD, allowing 20–30 minutes from Thayer Street. Use any remaining time for an open indoor café or shop; the daily snack allowance covers one café stop, not two. Aim to be near the museum by 4:50pm. If the hill is icy, keep the library alternative and skip Thayer.',place:'RISD Museum, 20 North Main Street Providence',cost:'Optional snack allowance $6–10',cold:'Use the library until about 4:20pm, then head to the museum. If severe weather makes the trip uncomfortable, skip the museum and stay near the hotel.'},
  {time:'5:00–6:30pm',title:'RISD Museum, free after five',type:'Free / indoors',duration:'90 min',text:'Enter from the currently operating public entrance; the museum lists free Thursday admission 5–8pm. Select two or three galleries instead of rushing through everything. Get the free Thursday ticket through the official site if offered for your date.',place:'RISD Museum Providence',cost:'Free after 5pm',sources:['risd'],shot:'Museum sign, one gallery establishing shot, one favorite detail where photography is allowed. No flash; follow gallery rules.'},
  {time:'7:00–8:00pm',title:'A nearby seated dinner',type:'Food',duration:'20–25 min walk + dinner',text:'Return through downtown to Trinity Brewhouse, near the hotel. The burger includes fries; water avoids a second round of costs. The $13 cheese pizza is a good cheaper substitute. A bar seat works well for a solo meal without committing to nightlife.',place:'Trinity Brewhouse, 186 Fountain Street Providence',cost:'About $23.94 at 18%, plus card fee reserve',meal:'trinity',sources:['trinity','trinityFee']}
  ]},
- {id:'dec-11',date:'Fri, Dec 11',city:'Providence → Hartford',title:'A train day, without the rush.',sub:'A protected connection and a gentle Hartford arrival.',walk:'1–2 mi',budget:[40,60],label:'Booked rail transfer',route:'Providence Station · New Haven · Hartford Union · hotel',food:['bears'],note:'Your route changes trains at New Haven. Hartford arrival is 2:14pm; hotel check-in begins at 3pm.',stops:[
+ {id:'dec-11',date:'Fri, Dec 11',city:'Providence → Hartford',title:'A train day, without the rush.',sub:'A protected connection and a gentle Hartford arrival.',walk:'1–2 mi',budget:[41.75, 58.5],label:'Booked rail transfer',route:'Providence Station · New Haven · Hartford Union · hotel',food:['bears'],note:'Your route changes trains at New Haven. Hartford arrival is 2:14pm; hotel check-in begins at 3pm.',stops:[
  {time:'7:30–8:30am',title:'Breakfast, pack, check out early',type:'Hotel',duration:'Leave hotel by about 8:45am',text:'Use the hotel café if the $10 daily credit is confirmed and worthwhile; otherwise budget a modest breakfast nearby. The standard checkout is 11am, but you must leave earlier. Settle the bill and take all bags.',place:'Hilton Garden Inn Providence Downtown Convention Center, 21 Atwells Avenue',cost:'Breakfast allowance $8–15 before credit',sources:['hotelRI']},
  {time:'8:45–9:30am',title:'Walk to Providence Station',type:'Transfer',duration:'20–25 min + station buffer',text:'Walk to 100 Gaspee Street with time for lights and luggage. Be at the station by 9:30am, at least 30 minutes before departure. If sidewalks are icy, allow extra time and check the live transit option; do not replace this buffer with sightseeing.',place:'Providence Station, 100 Gaspee Street Providence',origin:'21 Atwells Avenue Providence',cost:'Walk free',cold:'Leave earlier and use a taxi if necessary; there is no dependable short bus connection worth risking the train for.'},
  {time:'10:01–11:56am',title:'Northeast Regional 93',type:'Booked travel',duration:'Providence → New Haven',text:'Board your reserved coach train. Keep the Amtrak eTicket available in the app and carry ID. Confirm the track from station displays; track numbers are not fixed in this plan.',cost:'Booked · rail fare not supplied',shot:'Window scenery and a train exterior after you have confirmed boarding. Never film ticket QR codes.'},
@@ -92,18 +111,18 @@ const DAYS = [
  {time:'3:45–4:30pm',title:'First river view, if the paths are clear',type:'Free / outdoors',duration:'Short daylight loop',text:'Take a brief Founders Bridge pedestrian-path / riverfront look after dropping your bags. The hotel is on the east bank. Finish outdoor shooting before darkness and cold become uncomfortable. Keep the full park walk for a better-weather day.',place:'Founders Bridge East Hartford',cost:'Free',shot:'East-bank skyline, bridge detail, warm lights at blue hour. Do not enter closed or icy river paths.',cold:'Skip the river. Rest at the hotel, then use live transit or a taxi for dinner; no photo is essential.'},
  {time:'4:45–5:45pm',title:'Front Street BBQ and back to the hotel',type:'Food',duration:'Dinner + return buffer',text:'Bear’s is on the Hartford side of the river. Choose a pulled-pork sandwich, one side and water. If you stayed inside at the hotel, this is a separate trip: check the route before leaving. Return by a clear bridge path, operating bus, or taxi; do not assume the hotel shuttle runs late.',place:'Bear’s Smokehouse, 25 Front Street Hartford',cost:'About $19.32 before optional tip',meal:'bears',sources:['bears']}
  ]},
- {id:'dec-12',date:'Sat, Dec 12',city:'Hartford',title:'Art, makers & winter lights.',sub:'The best free-admission day of the trip.',walk:'2.5–4 mi',budget:[65,85],label:'Free museum + holiday market',route:'Wadsworth · Union Station · Bushnell Park · Pratt Street',food:['sally','salute'],note:'Second Saturdays is open to visitors of all ages. You can enjoy the free galleries as a solo traveler.',stops:[
+ {id:'dec-12',date:'Sat, Dec 12',city:'Hartford',title:'Art, makers & winter lights.',sub:'The best free-admission day of the trip.',walk:'2.5–4 mi',budget:[48.5, 68.5],label:'Free museum + holiday market',route:'Wadsworth · Union Station · Bushnell Park · Pratt Street',food:['bloom','salute'],note:'Second Saturdays is open to visitors of all ages. You can enjoy the free galleries as a solo traveler.',stops:[
  {time:'8:00–9:00am',title:'Use the included hotel breakfast',type:'Food',duration:'Confirm weekend serving hours',text:'Hampton advertises complimentary hot breakfast. Have a proper breakfast before heading out and fill your water bottle. Ask the front desk about the day’s shuttle policy and current river-path conditions.',place:'Hampton Inn & Suites Hartford/East Hartford, 351 Pitkin Street',cost:'Included breakfast',sources:['hotelCT']},
  {time:'9:10–10:00am',title:'Head downtown once, stay for the day',type:'Transfer',duration:'Allow 40–50 min',text:'Walk via Founders Bridge only if pavement is clear: budget 25–35 minutes to the Wadsworth with extra crossing time. In poor conditions, use a live CTtransit journey to downtown; route 87’s Saturday service must be checked separately. Buy a $3.50 day pass if making more than one paid trip.',place:'Wadsworth Atheneum, 600 Main Street Hartford',origin:'351 Pitkin Street East Hartford',mode:'transit',cost:'Walk free or CTtransit pass $3.50',sources:['ct','route87'],cold:'Prefer an operating bus or confirmed hotel shuttle. If neither works, use a taxi; do not cross an icy bridge to save the fare.'},
  {time:'10:00–11:45am',title:'The Wadsworth · $0 admission ordered',type:'Order received · ticket pending',duration:'Planned 10am arrival · receipt has no timed entry',statusNote:'One general admission ordered at $0 for Second Saturday | Festival of Trees & Traditions, December 12. The order receipt is not the ticket: look for the separate email titled Your Tickets and present that ticket on your phone or a printout.',text:'Your supplied receipt confirms a $0 order for one general admission to Second Saturday | Festival of Trees & Traditions on Saturday, December 12. Plan to visit around 10am; the receipt does not assign a timed entry. Look for the separate Your Tickets email, including spam. Enter at 600 Main Street or 29 Atheneum Square North. Browse the galleries, then allow the last 10 minutes for the museum shop; the museum closes at 5pm.',place:'Wadsworth Atheneum, 600 Main Street Hartford',cost:'$0 order received · actual ticket email still needed',sources:['wads'],shot:'Castle-like exterior, a gallery-wide composition, one detail where permitted. The museum is the indoor anchor of this day.'},
  {time:'11:50am–12:10pm',title:'Starbucks · Connecticut mug hunt',type:'Souvenir / indoors',duration:'5–10 min walk from Wadsworth',text:'Try the Starbucks inside Hartford Marriott Downtown, 200 Columbus Boulevard, for a Connecticut destination mug. Marriott lists a retail shop and Saturday hours 6am–3pm. Mug availability is not confirmed. If unavailable, City Place Starbucks at 185 Asylum Street is a possible second stop en route to lunch; call 860-527-1225 because secondary listings disagree on weekend hours. Ask specifically for the Connecticut 14oz mug and your preferred series. Do not assume a separate Hartford design exists.',place:'Starbucks Hartford Marriott Downtown, 200 Columbus Boulevard Hartford CT',cost:'Mug allowance $20–25 + 6.35% retail tax = $21.27–26.59; no tip on merchandise',sources:['starbucksCT','starbucksCTbackup','starbucksMugs'],shot:'Mug lettering, storefront or lobby sign, and a final side-by-side mug shot back at the hotel.'},
- {time:'12:30–1:15pm',title:'Southern comfort for lunch',type:'Food',duration:'15–20 min walk + lunch',text:'Walk toward Union Station and eat at Black-Eyed Sally’s. Fried chicken with the included sides is an easy one-person order. You are paying for lunch; do not assume a live-music performance or free food is included.',place:'Black-Eyed Sally’s, 350 Asylum Street Hartford',cost:'About $23.75 at 18% tip',meal:'sally',sources:['sally','sallyPrice']},
+ {time:'12:20–1:10pm',title:'Pratt Street · an easy café lunch',type:'Food / browsing',duration:'10–15 min walk from Marriott + lunch',text:'Head to Bloom Bake Shop at 80 Pratt Street for a modest savory café item and water, checking today’s case and price before ordering. If the savory selection is unavailable, choose another nearby casual counter within the same allowance. Browse Hartford Prints at 42½ Pratt Street if open; gift purchases use your souvenir budget. This brings café and shop time into the daylight portion of the day.',place:'Bloom Bake Shop, 80 Pratt Street Hartford',cost:'Lunch planning allowance $14–18 with tax; optional tips from snack allowance',meal:'bloom',sources:['bloom','hartfordPrints','pratt']},
  {time:'1:20–2:10pm',title:'Winterfair in Union Station’s Great Hall',type:'Market / indoors',duration:'Across the street · 55 min',text:'The organizer lists Saturdays and Sundays 11am–4pm, November 28–December 20, 2026. December 12 fits that published run. Browsing is the plan; keep $10–25 separately for a small locally made gift. The organizer page does not state an admission price, so confirm entry before committing.',place:'Hartford Union Station, 1 Union Place Hartford',cost:'Browsing planned · confirm admission; gifts optional',sources:['winterfair'],shot:'Station exterior, hall architecture and a maker’s work with permission. Keep ticketing screens out of shot.'},
  {time:'2:20–3:00pm',title:'Winterfest and Bushnell Park',type:'Free / outdoors',duration:'5–10 min walk + short visit',text:'The official calendar lists December 12 activities at the rink, including Giant Games 12–3pm and Santa’s Workshop 12–3pm. Winterfest advertises free skating and rentals; confirm that day’s public skate session and weather status before queuing. Spectating is enough if you would rather film than skate.',place:'Winterfest Hartford, Bushnell Park',cost:'Free listed activities',sources:['winterfest'],shot:'Rink activity, bare trees and the distant Capitol. Keep people’s faces incidental; never film while skating.',cold:'Stay longer at the Wadsworth or Winterfair, both indoors. Omit the park entirely when wind, sleet or ice makes it unpleasant.'},
  {time:'3:10–4:45pm',title:'Pratt Street, a warm drink, a little browsing',type:'Free / flexible',duration:'10–15 min walk + café break',text:'Photograph the pedestrian street’s architecture and any seasonal lights actually installed. Browse shops that are open; allow $6–10 for a café drink or snack. Rest before dinner rather than adding a distant attraction.',place:'Pratt Street Hartford',cost:'Exterior photos free · snack $6–10',shot:'One storefront sign, brickwork, a low-light street scene. Holiday decoration layouts are not guaranteed.',cold:'Choose one open indoor café and stay warm until dinner. No retail opening or specific decoration display is assumed.'},
  {time:'5:30–6:30pm',title:'One nicer dinner at Salute',type:'Food',duration:'About 5–10 min from Pratt Street',text:'The rose pasta is $28 on the official June 2026 dinner menu. Pomodoro at $20 keeps it cheaper. Reserve a single seat if you want a fixed dinner time. Afterwards check the live return route to the east-bank hotel; a late bus or shuttle is not guaranteed.',place:'Salute, 100 Trumbull Street Hartford',cost:'Rose pasta about $35.10 at 18% tip',meal:'salute',sources:['salute']}
  ]},
- {id:'dec-13',date:'Sun, Dec 13',city:'Hartford',title:'A warm market, a final river frame.',sub:'Flexible food-hall day with plenty of packing time.',walk:'1.5–3 mi',budget:[50,70],label:'Indoor-friendly Sunday',route:'Hotel · Capitol exterior · Parkville Market · downtown',food:['parkville','bears'],note:'Sunday buses are less frequent. Route 87 has historically had no Sunday service; do not rely on it for the hotel crossing.',stops:[
+ {id:'dec-13',date:'Sun, Dec 13',city:'Hartford',title:'A warm market, a final river frame.',sub:'Flexible food-hall day with plenty of packing time.',walk:'1.5–3 mi',budget:[43.5, 58.5],label:'Indoor-friendly Sunday',route:'Hotel · Capitol exterior · Parkville Market · downtown',food:['parkville','bears'],note:'Sunday buses are less frequent. Route 87 has historically had no Sunday service; do not rely on it for the hotel crossing.',stops:[
  {time:'8:30–9:30am',title:'Breakfast and the departure check',type:'Hotel',duration:'1 hour',text:'Use included breakfast. Before sightseeing, confirm Monday’s first airport bus, the route to its downtown stop, and a taxi fallback. Ask whether the hotel can arrange a pre-dawn taxi if transit is disrupted. Do not assume an airport shuttle is included.',place:'Hampton Inn & Suites Hartford/East Hartford, 351 Pitkin Street',cost:'Breakfast included',sources:['hotelCT','flyer']},
  {time:'10:00–11:00am',title:'A short Capitol and park exterior loop',type:'Free / outdoors',duration:'Transfer + 15–20 min outside',text:'On a clear day, cross downtown and frame the Connecticut State Capitol from Bushnell Park. This is an exterior stop: no Sunday building tour is assumed. Omit it if the bridge or paths are icy. Save energy for the food hall.',place:'Connecticut State Capitol, 210 Capitol Avenue Hartford',origin:'351 Pitkin Street East Hartford',mode:'transit',cost:'Free exterior · transit separate',shot:'Gold dome and bare trees, one park detail. Use public paths only.',cold:'Go directly to Parkville Market once it opens at 11am. Choose a live Sunday route from the hotel; do not assume route 87 operates.'},
  {time:'11:00am–12:00pm',title:'Bus to Parkville Market',type:'Transfer',duration:'Allow 30–60 min incl. wait',text:'From downtown, look for route 31 toward Park Street / Parkville; confirm the destination and stop nearest 1400 Park Street in the live planner. CTfastrak to Parkville Station plus a walk is another possibility. Budget extra for Sunday frequency and use the same $3.50 day pass for return local rides.',place:'Parkville Market, 1400 Park Street Hartford',origin:'Connecticut State Capitol Hartford',mode:'transit',cost:'CTtransit day pass $3.50',sources:['ct','parkville'],cold:'If the next bus creates a long cold wait, stay indoors until it approaches. You can substitute Winterfair downtown, listed 11am–4pm, to avoid this farther outing.',sourcesExtra:['winterfair']},
@@ -113,7 +132,7 @@ const DAYS = [
  {time:'4:15–5:15pm',title:'An early, easy dinner',type:'Food',duration:'Before returning east',text:'Bear’s Front Street is convenient before the hotel crossing. Order the sandwich and a side, or choose another modest plate from the posted menu. If you prefer, buy dinner to take back, then check live transit home before the evening service thins.',place:'Bear’s Smokehouse, 25 Front Street Hartford',cost:'About $19.32 before optional tip',meal:'bears',sources:['bears']},
  {time:'6:00–8:00pm',title:'Pack, charge, sleep early',type:'Rest',duration:'Protect the early departure',text:'Pack all bags, charge your iPhone and power bank, lay out gloves and coat, and set two alarms. Keep Monday breakfast portable; regular hotel breakfast may begin after you need to leave. Save both airline boarding passes and transit details.',place:'Hampton Inn & Suites Hartford/East Hartford, 351 Pitkin Street',cost:'Portable snack allowance $5–8'}
  ]},
- {id:'dec-14',date:'Mon, Dec 14',city:'Hartford → home',title:'An early start, then home.',sub:'Protect the flight; sightseeing is finished.',walk:'Minimal',budget:[25,45],label:'8am flight from BDL',route:'East Hartford hotel · downtown bus stop · BDL · Houston · CRP',food:[],note:'BDL is Bradley International Airport, not Hartford Union Station. Aim to be at the terminal by 6am Eastern.',stops:[
+ {id:'dec-14',date:'Mon, Dec 14',city:'Hartford → home',title:'An early start, then home.',sub:'Protect the flight; sightseeing is finished.',walk:'Minimal',budget:[31.75, 41.75],label:'8am flight from BDL',route:'East Hartford hotel · downtown bus stop · BDL · Houston · CRP',food:[],note:'BDL is Bradley International Airport, not Hartford Union Station. Aim to be at the terminal by 6am Eastern.',stops:[
  {time:'4:00–4:30am ET',title:'Check out and get to the airport connection',type:'Transfer',duration:'Early start required',text:'Provisional bus target: the linked weekday timetable lists route 30X at 5:00am from Union Station Transit Center, Union Place, reaching BDL Terminal A at 5:33am. Recheck December 14 operation. Arrange a taxi from the hotel around 4:15–4:25am to be at the bus stop by 4:45am; do not assume a pre-dawn local bus from the hotel. A direct taxi to BDL is the simpler fallback.',place:'Bradley International Airport',origin:'351 Pitkin Street East Hartford',mode:'transit',cost:'Airport bus $1.75 · taxi contingency separate',sources:['flyer','ct'],cold:'In ice, snow or poor visibility, use a pre-arranged direct taxi with an arrival target of 5:45–6am. Leave earlier when the forecast requires it; taxi availability and price need confirming.'},
  {time:'By 6:00am ET',title:'Bradley terminal, security and breakfast',type:'Airport',duration:'2-hour planning buffer',text:'Use route 30 Bradley Flyer only if a currently verified early trip gets you here by 6am, including the transfer and walking time. Have your ID and boarding pass ready. An 8am flight is not compatible with leaving the hotel at its standard 11am checkout. Buy a light breakfast after security; allow $8–12.',place:'Bradley International Airport Terminal A',cost:'Food allowance $8–12'},
  {time:'8:00am ET–11:07am CT',title:'UA413 · Bradley → Houston',type:'Booked travel',duration:'4h07 elapsed',text:'The itinerary’s 8am departure is Eastern and 11:07am arrival is Central. Find your next gate immediately at IAH: the connection is only 58 minutes. Aircraft and operating-carrier details can change; use the United app for current assignments.',cost:'Booked · flight fare not supplied'},
@@ -134,4 +153,176 @@ const SOUVENIRS = [
  {item:'Vintage Rhode Island postcard',where:'RISD Store · 30 North Main Street; check shelf stock',state:'RI',low:1.50,high:1.50,status:'Official online catalog price; in-store stock unverified'},
  {item:'Greetings from Hartford / Connecticut magnet',where:'Wadsworth Museum Shop · during Saturday visit',state:'CT',low:6.95,high:6.95,status:'Official online catalog price; in-store stock unverified'},
  {item:'Small maker ornament or print',where:'Winterfair · Union Station',state:'CT',low:10,high:20,status:'Planning allowance, not a vendor quote'}
+];
+
+// Inclusive planning allowances for one traveler, not quoted menu prices.
+const BUDGET_DAYS = [
+  {
+    "id": "dec-09",
+    "date": "Wed, Dec 9",
+    "meals": [
+      [
+        0,
+        0
+      ],
+      [
+        16,
+        22
+      ],
+      [
+        23,
+        28
+      ],
+      [
+        6,
+        10
+      ]
+    ],
+    "bus": [
+      2,
+      2
+    ],
+    "busNote": "PVD → Kennedy Plaza on RIPTA 66",
+    "note": "Breakfast at home; ORD lunch, arrival dinner and a coffee/snack."
+  },
+  {
+    "id": "dec-10",
+    "date": "Thu, Dec 10",
+    "meals": [
+      [
+        14,
+        20
+      ],
+      [
+        16,
+        20
+      ],
+      [
+        20,
+        25
+      ],
+      [
+        5,
+        10
+      ]
+    ],
+    "bus": [
+      2,
+      6
+    ],
+    "busNote": "Allow one paid RIPTA ride; up to the $6 Wave daily cap",
+    "note": "Ellie’s, a sandwich or Thayer wrap, Trinity dinner and a café stop."
+  },
+  {
+    "id": "dec-11",
+    "date": "Fri, Dec 11",
+    "meals": [
+      [
+        8,
+        12
+      ],
+      [
+        12,
+        16
+      ],
+      [
+        16,
+        20
+      ],
+      [
+        4,
+        7
+      ]
+    ],
+    "bus": [
+      1.75,
+      3.5
+    ],
+    "busNote": "Hartford local transfer; day pass if needed",
+    "note": "Modest breakfast, station lunch, casual dinner. Hotel credit is not deducted."
+  },
+  {
+    "id": "dec-12",
+    "date": "Sat, Dec 12",
+    "meals": [
+      [
+        0,
+        0
+      ],
+      [
+        14,
+        18
+      ],
+      [
+        25,
+        37
+      ],
+      [
+        6,
+        10
+      ]
+    ],
+    "bus": [
+      3.5,
+      3.5
+    ],
+    "busNote": "CTtransit local all-day pass",
+    "note": "Included hotel breakfast, Bloom/casual lunch, Salute and one treat."
+  },
+  {
+    "id": "dec-13",
+    "date": "Sun, Dec 13",
+    "meals": [
+      [
+        0,
+        0
+      ],
+      [
+        16,
+        21
+      ],
+      [
+        18,
+        24
+      ],
+      [
+        6,
+        10
+      ]
+    ],
+    "bus": [
+      3.5,
+      3.5
+    ],
+    "busNote": "One local day pass for hotel/market links that operate",
+    "note": "Included breakfast, Parkville lunch, Bear’s dinner and a café treat."
+  },
+  {
+    "id": "dec-14",
+    "date": "Mon, Dec 14",
+    "meals": [
+      [
+        6,
+        8
+      ],
+      [
+        18,
+        24
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "bus": [
+      1.75,
+      1.75
+    ],
+    "busNote": "Route 30 to BDL; taxi to its stop is separate",
+    "note": "Portable breakfast, airport lunch/snacks; dinner at home, outside trip budget."
+  }
 ];
